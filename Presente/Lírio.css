@@ -1,0 +1,443 @@
+:root{
+
+    --bg:#0d1117;
+
+    --pink:#ff6fb5;
+    --pink-light:#ffc2df;
+
+    --green:#57d68d;
+    --green-light:#a6f4c5;
+
+    --text:#f8fafc;
+
+}
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+body{
+
+    min-height:100vh;
+
+    overflow:hidden;
+
+    font-family:"Poppins",sans-serif;
+
+    background:
+
+    radial-gradient(
+        circle at top left,
+        rgba(255,111,181,.12),
+        transparent 35%
+    ),
+
+    radial-gradient(
+        circle at bottom right,
+        rgba(87,214,141,.12),
+        transparent 35%
+    ),
+
+    var(--bg);
+
+    color:var(--text);
+
+}
+
+.container{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+.tag{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:rgba(255,111,181,.15);
+
+    color:var(--pink-light);
+
+    margin-bottom:20px;
+
+}
+
+.intro h1{
+
+    margin-bottom:15px;
+
+}
+
+.intro p{
+
+    opacity:.85;
+
+}
+
+
+.flower{
+
+    position:relative;
+
+    width:300px;
+
+    height:350px;
+
+    margin-top:40px;
+
+    margin-bottom:40px;
+
+}
+
+.stem{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:0;
+
+    transform:translateX(-50%);
+
+    width:8px;
+
+    height:0;
+
+    background:var(--green);
+
+    border-radius:999px;
+
+    box-shadow:
+    0 0 15px rgba(87,214,141,.4);
+
+}
+
+
+.petal{
+
+    position:absolute;
+
+    width:95px;
+
+    height:130px;
+
+    background:var(--pink-light);
+
+    border-radius:50%;
+
+    opacity:0;
+
+    transform:scale(0);
+
+    box-shadow:
+    0 0 25px rgba(255,111,181,.25);
+
+}
+
+.center{
+
+    position:absolute;
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    background:white;
+
+    opacity:0;
+
+    box-shadow:
+    0 0 25px white;
+
+}
+
+
+.p1{
+
+    top:35px;
+    left:102px;
+
+}
+
+.p2{
+
+    top:70px;
+    left:55px;
+
+    transform:rotate(-35deg);
+
+}
+
+.p3{
+
+    top:70px;
+    right:55px;
+
+    transform:rotate(35deg);
+
+}
+
+.p4{
+
+    top:120px;
+    left:70px;
+
+    transform:rotate(-55deg);
+
+}
+
+.p5{
+
+    top:120px;
+    right:70px;
+
+    transform:rotate(55deg);
+
+}
+
+.p6{
+
+    top:95px;
+    left:102px;
+
+}
+
+.center{
+
+    top:120px;
+    left:130px;
+
+}
+
+
+.grow{
+
+    animation:
+    growStem 2.5s forwards;
+
+}
+
+.bloom{
+
+    animation:
+    bloom .9s forwards;
+
+}
+
+.showCenter{
+
+    animation:
+    bloom .8s forwards;
+
+}
+
+@keyframes growStem{
+
+    from{
+
+        height:0;
+
+    }
+
+    to{
+
+        height:220px;
+
+    }
+
+}
+
+@keyframes bloom{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        scale(0);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        scale(1);
+
+    }
+
+}
+
+
+#message{
+
+    max-width:700px;
+
+    opacity:0;
+
+    transform:
+    translateY(20px);
+
+    transition:
+    1s;
+
+}
+
+#message.show{
+
+    opacity:1;
+
+    transform:
+    translateY(0);
+
+}
+
+#message h2{
+
+    margin-bottom:20px;
+
+}
+
+.btn{
+
+    display:inline-block;
+
+    margin-top:40px;
+
+    padding:15px 30px;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        var(--pink),
+        var(--green)
+    );
+
+    transition:.3s;
+
+}
+
+.btn:hover{
+
+    transform:
+    translateY(-3px);
+
+}
+
+
+.particles{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+}
+
+.particles span{
+
+    position:absolute;
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    bottom:-50px;
+
+    animation:
+    float 12s linear infinite;
+
+}
+
+.particles span:nth-child(odd){
+
+    background:var(--pink-light);
+
+}
+
+.particles span:nth-child(even){
+
+    background:var(--green-light);
+
+}
+
+.particles span:nth-child(1){left:10%;}
+.particles span:nth-child(2){left:20%; animation-delay:2s;}
+.particles span:nth-child(3){left:35%; animation-delay:4s;}
+.particles span:nth-child(4){left:50%; animation-delay:1s;}
+.particles span:nth-child(5){left:65%; animation-delay:6s;}
+.particles span:nth-child(6){left:75%; animation-delay:3s;}
+.particles span:nth-child(7){left:85%; animation-delay:5s;}
+.particles span:nth-child(8){left:95%; animation-delay:7s;}
+
+@keyframes float{
+
+    from{
+
+        transform:
+        translateY(0);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:.8;
+
+    }
+
+    to{
+
+        transform:
+        translateY(-110vh);
+
+        opacity:0;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .flower{
+
+        transform:scale(.8);
+
+    }
+
+}
